@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTV Junior Bucarest</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f8f0;
+      color: #3e2f1c;
+    }
+
+    header {
+      background-color: #3e6b3e;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #a0522d;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 1em 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #d2ffcc;
+    }
+
+    section {
+      padding: 2em;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      border-bottom: 2px solid #3e6b3e;
+      padding-bottom: 0.3em;
+      margin-bottom: 1em;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 1em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 0.5em;
+      border: 1px solid #ccc;
+    }
+
+    .image-zone {
+      margin-top: 1em;
+    }
+
+    .image-zone img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #a0522d;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #3e6b3e;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GTV Junior Bucarest</h1>
+    <p>L'association étudiante vétérinaire qui aime la campagne... et les bottes en caoutchouc !</p>
+  </header>
+
+  <nav>
+    <a href="#presentation">Présentation</a>
+    <a href="#evenement">Évènements</a>
+    <a href="#equipe">Équipe</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="presentation">
+    <h2>Présentation</h2>
+    <p>Bienvenue sur le site de GTV Junior Bucarest, l'association vétérinaire qui sent bon le foin frais ! On forme les futurs pros de la santé animale en milieu rural, entre deux trajets en tracteur et un café tiède à la ferme.</p>
+    <div class="image-zone">
+      <img src="img/presentation.jpeg" alt="Image de présentation">
+    </div>
+  </section>
+
+  <section id="evenement">
+    <h2>Évènements</h2>
+    <ul>
+      <li><strong>Mission Pâturage :</strong> Intervention chez des éleveurs locaux, bottes obligatoires !</li>
+      <li><strong>Soirée Fromage & Parasitologie :</strong> On mange, on révise, on gratte... les tiques !</li>
+      <li><strong>Salon de la Vache Heureuse :</strong> Stand GTV Junior avec des goodies en forme de sabot.</li>
+    </ul>
+    <div class="image-zone">
+      <img src="https://via.placeholder.com/800x300?text=Image+Evenements" alt="Image évènements">
+    </div>
+  </section>
+
+  <section id="equipe">
+    <h2>Équipe</h2>
+    <p>Notre équipe ? Une bande de passionnés de la vie animale rurale :</p>
+    <ul>
+      <li>Marie - Présidente (et amoureuse des chèvres)</li>
+      <li>Lucas - Trésorier (toujours avec un seau à la main)</li>
+      <li>Ana - Responsable communication (spécialiste du selfie avec veau)</li>
+    </ul>
+    <div class="image-zone">
+      <img src="https://via.placeholder.com/800x300?text=Image+Équipe" alt="Image de l'équipe">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form class="contact-form">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="nom">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email">
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+    <div class="image-zone">
+      <img src="https://via.placeholder.com/800x300?text=Image+Contact" alt="Image de contact">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GTV Junior Bucarest - Tous droits réservés - Vétos et bottes unis !</p>
+  </footer>
+
+  <script>
+    // Ajoute la classe 'visible' au scroll
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
